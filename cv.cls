@@ -1,13 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{neatcv}[2015/03/20 by Iskander Sitdikov]
+\ProvidesClass{cv}[2015/03/20 by Iskander Sitdikov]
 
-\LoadClass[a4paper, 12pt]{article}
+\LoadClass[11pt, varwidth=210mm, border=0.618in]{standalone}
 
-\RequirePackage[margin=0.618in]{geometry}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[T2A]{fontenc}
+\RequirePackage[T1, T2A]{fontenc}
 \RequirePackage[default]{droidserif}
-\RequirePackage[russian, english]{babel}
+\RequirePackage[english, russian]{babel}
 \RequirePackage{csquotes}
 \RequirePackage{etoolbox}
 \RequirePackage{pbox}
@@ -15,7 +14,6 @@
 \RequirePackage[table]{xcolor}
 \RequirePackage{marvosym}
 \RequirePackage[shortlabels]{enumitem}
-\RequirePackage[bottom, norule, flushmargin]{footmisc}
 \RequirePackage[backend=biber, sorting=none, autolang=other]{biblatex}
 \RequirePackage[hidelinks]{hyperref}
 
@@ -62,34 +60,35 @@
 \newcommand{\cvsethomepage}[1]{\renewcommand{\@cvhomepage}{#1}}
 
 % Colors.
+\pagecolor{white}
 \definecolor{cvbase}{HTML}{000000}
-\definecolor{cvlow}{HTML}{666666}
-\definecolor{cvhigh}{HTML}{330066}
+\definecolor{cvlow}{HTML}{52636B}
+\definecolor{cvhigh}{HTML}{134E4A}
 
 % Color changing command.
 % #1 - name of the color (base, low, or high).
 \newcommand{\cvcolor}[1]{\leavevmode\color{cv#1}}
 
 % Icons.
-\newcommand{\cvaddressicon}{\Letter}
+\newcommand{\cvaddressicon}{\Mundus}
 \newcommand{\cvphoneicon}{\Telefon}
-\newcommand{\cvemailicon}{\MVAt}
-\newcommand{\cvcryptoidicon}{\YinYang}
-\newcommand{\cvhomepageicon}{\Mundus}
+\newcommand{\cvemailicon}{\Letter}
+\newcommand{\cvcryptoidicon}{\Deleatur}
+\newcommand{\cvhomepageicon}{\MineSign}
 
 % Lengths.
 \newcommand{\cvnewlength}[2]{%
     \expandafter\newlength\csname @cv#1\endcsname%
     \expandafter\setlength\csname @cv#1\endcsname{#2}%
 }
-\cvnewlength{itempadding}{0.618em}
-\cvnewlength{descriptionrulewidth}{0.09ex}
-\cvnewlength{sectionruleheight}{1.618\@cvdescriptionrulewidth}
-\cvnewlength{entrymargin}{8.5em}
-\cvnewlength{itemmargin}{7em}
+\cvnewlength{rulethickness}{0.05ex}
+\cvnewlength{entrymargin}{11.089em}
+\cvnewlength{itemmargin}{6.854em}
 \cvnewlength{sectionskip}{1.618em}
 \cvnewlength{entryskip}{1em}
 \cvnewlength{paragraphskip}{0.618em}
+\cvnewlength{itempadding}{0.618em}
+\cvnewlength{listpadding}{0.382em}
 
 % General formatting rules.
 \pagenumbering{gobble}
@@ -99,13 +98,12 @@
 % Skipping command.
 % #1 - name of the skip (section, entry, or paragraph).
 \newcommand{\cvskip}[1]{%
-    \unskip%
     \setlength{\parskip}{\csname @cv#1skip\endcsname}%
     \par%
 }
 
 % Hyperlink printing command.
-\newcommand{\cvurl}[2]{\href{#2}{#1}}
+\newcommand{\cvurl}[2]{\href{#2}{\cvcolor{high}#1\cvcolor{base}}}
 
 % E-mail printing command.
 \newcommand{\cvemail}[1]{\cvurl{#1}{mailto:#1}}
@@ -113,30 +111,37 @@
 % Crypto identity printing command.
 \newcommand{\cvcryptoid}[1]{\cvurl{#1}{https://app.zerion.io/#1}}
 
-% Generic description environment.
-% #1 - vertical alignment (t [default], c or b).
-% #2 - exact width of the key column.
-% #3 - maximum width of the whole description.
-\newenvironment{cvdescription*}[3][t]{%
-    % Description item.
+% Generic context environment.
+% #1 - exact width of the key column.
+% #2 - maximum width of the whole context.
+\newenvironment{cvcontext}[2]{%
+    % Context item.
     % #1 - key.
     % #2 - value.
     \newcommand{\cvitem}[2]{%
-        \cvcolor{low}\parbox[t]{#2}{\raggedleft##1\unskip\strut}&%
+        \cvitembreak%
+        \stepcounter{cvitemcounter}%
+        \cvcolor{low}\parbox[t]{#1}{\raggedleft##1\unskip\strut}&%
         \pbox[t]{\@cvitemwidth}{##2\unskip\strut}\\%
     }%
-    \setlength{\arrayrulewidth}{\@cvdescriptionrulewidth}%
+    \newcommand{\cvitembreak}{%
+        \ifnum\thecvitemcounter>0 & \\[\@cvitembreak]\fi%
+    }%
+    \setlength{\@cvitemwidth}{#2-#1-2\@cvitempadding-\@cvrulethickness}%
+    \setlength{\@cvitembreak}{\@cvparagraphskip-\baselineskip}%
+    \setcounter{cvitemcounter}{0}%
     \setlength{\tabcolsep}{\@cvitempadding}%
-    \setlength{\extrarowheight}{0.618\@cvitempadding}%
-    \setlength{\@cvitemwidth}{#3-#2-2\@cvitempadding-\@cvdescriptionrulewidth}%
+    \setlength{\arrayrulewidth}{\@cvrulethickness}%
     \arrayrulecolor{cvlow}%
-    \begin{tabular}[#1]{@{}r|l@{}}%
+    \begin{tabular}[t]{@{}r|l@{}}%
 }{\end{tabular}}
 \newlength{\@cvitemwidth}
+\newlength{\@cvitembreak}
+\newcounter{cvitemcounter}
 
 % Name printing command.
 \newcommand{\cvname}{\pbox[t]{\textwidth}{\cvnamestyle\@cvname\unskip\strut}}
-\newcommand{\cvnamestyle}{\Large\bfseries\scshape}
+\newcommand{\cvnamestyle}{\huge\bfseries}
 \newsavebox{\@cvnamebox}
 \newlength{\@cvnamewidth}
 
@@ -152,10 +157,11 @@
     \settowidth{\@cvnamewidth}{\usebox{\@cvnamebox}}%
     \savebox{\@cvmajorbox}{\cvmajor}%
     \settowidth{\@cvmajorwidth}{\usebox{\@cvmajorbox}}%
-    \setlength{\@cvintroductionwidth}{\maxof{\@cvnamewidth}{\@cvmajorwidth}}
-    \begin{minipage}[c]{\@cvintroductionwidth}%
-        \cvskip{paragraph}\usebox{\@cvnamebox}%
-        \ifdefempty{\@cvmajor}{}{\par\usebox{\@cvmajorbox}}%
+    \setlength{\@cvintroductionwidth}{\maxof{\@cvnamewidth}{\@cvmajorwidth}}%
+    \begin{minipage}[t]{\@cvintroductionwidth}%
+        \vspace{-1em}%
+        \usebox{\@cvnamebox}%
+        \ifdefempty{\@cvmajor}{}{\cvskip{paragraph}\usebox{\@cvmajorbox}}%
     \end{minipage}
 }
 \newlength{\@cvintroductionwidth}
@@ -164,13 +170,13 @@
 \newcommand{\cvcontacts}{%
     \settowidth{\@cviconwidth}{\cvemailicon}%
     \setlength{\@cvcontactswidth}{\textwidth-\@cvintroductionwidth}%
-    \begin{cvdescription*}[c]{\@cviconwidth}{\@cvcontactswidth}%
+    \begin{cvcontext}{\@cviconwidth}{\@cvcontactswidth}%
         \cvitem{\cvaddressicon}{\@cvaddress}%
         \cvitem{\cvphoneicon}{\@cvphone}%
         \cvitem{\cvemailicon}{\cvemail{\@cvemail}}%
         \cvitem{\cvcryptoidicon}{\cvcryptoid{\@cvcryptoid}}%
         \cvitem{\cvhomepageicon}{\cvurl{\@cvhomepage}{https://\@cvhomepage}}%
-    \end{cvdescription*}%
+    \end{cvcontext}%
 }
 \newlength{\@cviconwidth}
 \newlength{\@cvcontactswidth}
@@ -195,22 +201,22 @@
         \end{minipage}%
         \ignorespaces%
     }%
-    \savebox{\@cvtitlebox}{\cvtitlestyle#1}%
+    \cvcolor{high}%
+    \savebox{\@cvtitlebox}{#1}%
     \settowidth{\@cvtitlewidth}{\usebox{\@cvtitlebox}}%
     \setlength{\@cvsectionwidth}{\textwidth-\@cventrymargin-\@cventryskip}%
-    \cvskip{section}{%
-        \cvcolor{high}%
+    \cvskip{section}%
+    {%
         \cvsectionrule{\@cventrymargin}%
         \hspace{\@cventryskip}%
         \usebox{\@cvtitlebox}%
         \hspace{\@cventryskip}%
         \cvsectionrule{\@cvsectionwidth-\@cvtitlewidth-\@cventryskip}%
     }%
-    \nopagebreak%
+    \cvcolor{base}%
 }{}
-\newcommand{\cvtitlestyle}{\cvcolor{high}\footnotesize\bfseries\scshape}
 \newcommand{\cvsectionrule}[1]{%
-    \rule[0.5ex-0.5\@cvsectionruleheight]{#1}{\@cvsectionruleheight}%
+    \rule[0.5ex-0.5\@cvrulethickness]{#1}{\@cvrulethickness}%
 }
 \newsavebox{\@cvtitlebox}
 \newlength{\@cvtitlewidth}
@@ -219,15 +225,19 @@
 % Description environment.
 \newenvironment{cvdescription}[0]{%
     \footnotesize%
-    \begin{cvdescription*}{\@cvitemmargin}{\textwidth}%
-}{\end{cvdescription*}}
+    \begin{cvcontext}{\@cvitemmargin}{\textwidth}%
+}{%
+    \end{cvcontext}%
+    \normalsize%
+}
 
 % List environment.
 \newenvironment{cvlist}[0]{%
     % List item.
     % #1 - value.
-    \newcommand{\cvitem}[1]{\item{##1}}%
-    \begin{itemize}[---, nosep]%
+    \newcommand{\cvitem}[1]{\item{##1\unskip\strut}}%
+    \begin{itemize}[\Pointinghand, nosep, before=\vspace{\@cvlistpadding}, after=\vspace{\@cvlistpadding}, leftmargin=*, labelindent=\@cvlistpadding, labelsep=\@cvparagraphskip]%
+        \setlength{\itemsep}{\@cvparagraphskip}%
 }{\end{itemize}}
 
 % Bibliography printing command.
@@ -235,30 +245,60 @@
 \nocite{*}
 \newcommand{\cvbibliography}{%
     \cvskip{entry}%
-    \setlength{\@cvbibliographygap}{\partopsep+\topsep}%
-    \vspace{-\@cvbibliographygap}%
-    \setlength{\biblabelsep}{\@cventryskip}%
-    \setlength{\bibhang}{0pt}%
-    \setlength{\bibitemsep}{\@cventryskip}%
-    \printbibliography[heading=none]%
+    \begin{minipage}[t]{\textwidth}%
+        \setlength{\@cvbibliographygap}{\topsep}%
+        \vspace{-\@cvbibliographygap}%
+        \setlength{\biblabelsep}{\@cventryskip}%
+        \setlength{\bibhang}{0pt}%
+        \setlength{\bibitemsep}{\@cventryskip}%
+        \printbibliography[heading=none]%
+    \end{minipage}%
 }
 \newlength{\@cvbibliographygap}
 
-% Footnote text/mark printing command.
-% #1 - text (omit to refer an existing footnote).
-% #2 - mark name (unique for each footnote).
-\newcommand{\cvfootnote}[2][]{%
-    \ifstrempty{#1}{%
-        \footnotemark[\csname @cvfootnote@#2\endcsname]%
-    }{%
+% Footnote definition command.
+% #1 - slug (unique for each footnote).
+% #2 - text.
+\newcommand{\cvnewfootnote}[2]{%
+    \ifcsname @cvfootnote@#1\endcsname%
+    \else%
         \stepcounter{cvfootnotecounter}%
-        \footnotetext[\thecvfootnotecounter]{#1}%
-        \expandafter\newcommand\csname @cvfootnote@#2\endcsname{%
-            \thecvfootnotecounter%
-        }%
-    }%
+        \begingroup\edef\cvfootnotedefinition{%
+            \noexpand\g@addto@macro\noexpand\@cvfootnotelist{%
+                \noexpand\cvfootnote@{\thecvfootnotecounter}{\ignorespaces#2}%
+            }%
+            \noexpand\newcommand{\csname @cvfootnote@#1\endcsname}{%
+                \thecvfootnotecounter%
+            }%
+        }\expandafter\endgroup\cvfootnotedefinition%
+    \fi%
 }
 \newcounter{cvfootnotecounter}
+\newcommand{\@cvfootnotelist}{}
+
+% Footnote reference command.
+% #1 - slug.
+\newcommand{\cvfootnote}[1]{%
+    \textsuperscript{\csname @cvfootnote@#1\endcsname}%
+}
+
+% Internal footnote printing command.
+\newcommand{\cvfootnote@}[2]{%
+    \cvskip{paragraph}%
+    \textsuperscript{#1}~#2%
+}
+
+% Footnote list printing command.
+\newcommand{\cvfootnotes}{%
+    \ifstrempty{\@cvfootnotelist}{}{%
+        \unskip\cvskip{section}%
+        \footnotesize%
+        \cvcolor{low}%
+        \@cvfootnotelist%
+        \normalsize%
+        \cvcolor{base}%
+    }%
+}
 
 % Command that prints the number of years passed since the given year.
 % #1 - year to count from.
@@ -272,7 +312,7 @@
 % #3 - position.
 \newcommand{\cvreference}[3]{%
     \cventry{\Writinghand}{%
-        \textbf{#1\hfill\cvemail{#2}}%
+        \textbf{\ignorespaces#1}\hfill\cvemail{#2}%
         \par#3%
     }%
 }

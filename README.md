@@ -1,14 +1,14 @@
-# Neat CV
+# CV
 
-An unsophisticated yet neatly crafted LaTeX class for the [CV](#example).
+[An unsophisticated yet neatly crafted LaTeX template for your CV.](#example)
 
 ## License
 
-**Neat CV** is released under the MIT license.
+This CV template is released under the MIT license.
 
-## Requirements
+## Preparation
 
-All you need is to install [Docker](https://docs.docker.com/install/).
+[Docker](https://docs.docker.com/install/) is all you need.
 
 ## Usage
 
@@ -24,25 +24,25 @@ $ ./make.sh language=russian
 ```
 The default language is `english`.
 
-To clean up the directory after compilation, run
+To clean up after compilation, run
 ```bash
 $ ./make.sh clean
 ```
-Note, this will also remove the PDF.
+Note that this will also remove the PDF.
 
 ## Customization
 
 #### Color scheme
 
-Just redefine colors in the "Colors" section of the `neatcv.cls` file.
+Just redefine colors in the *Colors* section of `cv.cls`.
 
 #### Additional LaTeX packages
 
 Add missing Debian packages to the `Dockerfile` file, then run
 ```bash
-docker build -t thoughteer/neat-cv .
+docker build -t thoughteer/cv .
 ```
 
 ## Example
 
-![CV](cv.webp)
+![CV](cv.svg)

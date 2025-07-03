@@ -1,20 +1,20 @@
 language ?= english
 
-pdf: ps
+cv.pdf: cv.ps
 	ps2pdf cv.ps
 
-ps: dvi
+cv.ps: cv.dvi
 	dvips cv.dvi
 
-dvi: cv.tex neatcv.cls publications.bib
+cv.dvi: cv.cls cv.tex publications.bib
 	echo '\\cvsetlanguage{$(language)}' > language.tex
 	latex cv && biber cv && latex cv
 	rm language.tex
 
-snapshot: dvi
-	gm convert -density 600 cv.dvi +matte -background white -resize 15% -append cv.webp
+cv.svg: cv.pdf
+	pdf2svg cv.pdf cv.svg
 
 clean:
-	rm -f cv.aux cv.bbl cv.bcf cv.blg cv.dvi cv.log cv.out cv.pdf cv.ps cv.run.xml
+	rm -f cv.aux cv.bbl cv.bcf cv.blg cv.dvi cv.log cv.out cv.pdf cv.ps cv.run.xml cv.svg
 
-.PHONY: pdf ps dvi snapshot clean
+.PHONY: clean

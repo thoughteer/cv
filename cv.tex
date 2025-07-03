@@ -1,47 +1,47 @@
-\documentclass{neatcv}
+\documentclass{cv}
 
 \input{language}
 
 \cvsetname{\cvenglish{Iskander Sitdikov}\cvrussian{Искандер Ситдиков}}
 \cvsetmajor{
     \cvenglish{
-        A researcher, a mathematician,\\
-        a software engineer
+        A researcher, mathematician, and software engineer
     }
     \cvrussian{
-        Исследователь, математик,\\
-        разработчик ПО
+        Исследователь, математик и программист
     }
 }
 \cvsetaddress{
     \cvenglish{
-        Tbilisi, Georgia
+        Kuala Lumpur, Malaysia
     }
     \cvrussian{
-        Тбилиси, Грузия
+        Куала-Лумпур, Малайзия
     }
 }
 \cvsetphone{+995~511~234~698}
 \cvsetemail{thoughteer@proton.me}
-\cvsetcryptoid{thoughteer.nft}
+\cvsetcryptoid{thoughteer.eth}
 \cvsethomepage{github.com/thoughteer}
 
 \begin{document}
     \cvheader
-    \cvfootnote[
+    \cvnewfootnote{cmcmsu}{
         \cvenglish{
-            the Faculty of Computational Mathematics and Cybernetics of
+            Faculty of Computational Mathematics and Cybernetics of
             Lomonosov Moscow State University
         }
         \cvrussian{
             Факультет вычислительной математики и кибернетики МГУ имени
             М.\,В.~Ломоносова
         }
-    ]{cmcmsu}
+    }
+    \cvnewfootnote{adsc}{Advanced Digital Sciences Center (Singapore)}
     \begin{cvsection}{\cvenglish{Education}\cvrussian{Образование}}
         \cventry{2013--2015}{
             \textbf{%
-                \cvenglish{Ph.\,D.\ degree (unfinished)}\cvrussian{Аспирантура (неоконченная)}%
+                \cvenglish{Ph.\,D.\ degree (unfinished)}%
+                \cvrussian{Аспирантура (неоконченная)}%
             },
             \cvenglish{CMC MSU}\cvrussian{ВМК МГУ}\cvfootnote{cmcmsu},
             \cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}
@@ -49,11 +49,11 @@
             \begin{cvdescription}
                 \cvitem{\cvenglish{affiliation}\cvrussian{лаборатория}}{
                     \cvenglish{
-                        The Laboratory of Mathematical Methods of Image
+                        Laboratory of Mathematical Methods of Image
                         Processing
                     }
                     \cvrussian{
-                        Лаборатория математических методов обработки\\
+                        лаборатория математических методов обработки\\
                         изображений и компьютерного моделирования
                     }
                 }
@@ -66,27 +66,27 @@
         \cventry{2008--2013}{
             \textbf{%
                 \cvenglish{Specialist (M.\,S.) degree}%
-                \cvrussian{Высшее образование}%
+                \cvrussian{Специалитет}%
             },
             \cvenglish{CMC MSU}\cvrussian{ВМК МГУ}\cvfootnote{cmcmsu},
             \cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}
 
             \begin{cvdescription}
                 \cvitem{\cvenglish{field of study}\cvrussian{специальность}}{
-                    \cvenglish{Applied mathematics and computer science}
-                    \cvrussian{Прикладная математика и информатика}
+                    \cvenglish{applied mathematics and computer science}
+                    \cvrussian{прикладная математика и информатика}
                 }
                 \cvitem{\cvenglish{specialization}\cvrussian{специализация}}{
-                    \cvenglish{Mathematical physics}
-                    \cvrussian{Математическая физика}
+                    \cvenglish{mathematical physics}
+                    \cvrussian{математическая физика}
                 }
                 \cvitem{\cvenglish{affiliation}\cvrussian{лаборатория}}{
                     \cvenglish{
-                        The Laboratory of Mathematical Methods of Image
+                        Laboratory of Mathematical Methods of Image
                         Processing
                     }
                     \cvrussian{
-                        Лаборатория математических методов обработки\\
+                        лаборатория математических методов обработки\\
                         изображений и компьютерного моделирования
                     }
                 }
@@ -110,16 +110,16 @@
         }
         \cventry{1998--2008}{
             \textbf{%
-                \cvenglish{Secondary (complete) general education}%
-                \cvrussian{Среднее (полное) общее образование}%
+                \cvenglish{Secondary general education}%
+                \cvrussian{Среднее общее образование}%
             },
             \cvenglish{Gymnasium~\textnumero26, Naberezhnye Chelny, Russia}
             \cvrussian{Гимназия~\textnumero26, Набережные Челны, Россия}
 
             \begin{cvdescription}
                 \cvitem{\cvenglish{focus}\cvrussian{профиль}}{
-                    \cvenglish{Mathematics and physics}
-                    \cvrussian{Математика и физика}
+                    \cvenglish{mathematics and physics}
+                    \cvrussian{математика и физика}
                 }
                 \cvitem{\cvenglish{GPA}\cvrussian{средний балл}}{
                     5.0 \cvenglish{of}\cvrussian{из} 5
@@ -128,30 +128,36 @@
         }
     \end{cvsection}
     \begin{cvsection}{\cvenglish{Skills}\cvrussian{Навыки}}
-        \cventry{\cvenglish{operating systems}\cvrussian{операционные системы}}{
-            Mac OS X (\cvenglish{over}\cvrussian{свыше}
-                \cvyearssince{2017} \cvenglish{years}\cvrussian{лет}),
-            Debian (\cvenglish{over}\cvrussian{свыше} \cvyearssince{2010}
-                \cvenglish{years}\cvrussian{лет}),
-            Microsoft Windows (\cvenglish{over}\cvrussian{свыше}
-                \cvyearssince{2006} \cvenglish{years}\cvrussian{лет})
+        \cventry{\cvenglish{programming languages}\cvrussian{языки программирования}}{
+            Golang, Python, TypeScript, Java, C\,/\,C++, Bash, SQL, Matlab, Factor
         }
-        \cventry{%
-            \cvenglish{programming languages}%
-            \cvrussian{компьютерные языки }%
-        }{
-            Golang, Python, Java, C\,/\,C++, TypeScript, Zsh, Matlab, Factor, SQL
+        \cventry{\cvenglish{cloud infrastructure}\cvrussian{облачная инфраструктура}}{
+            AWS, Kubernetes, Docker, Helm, ArgoCD, HashiCorp Vault
         }
-        \cventry{\cvenglish{technologies}\cvrussian{технологии}}{
-            AWS, Kubernetes, Spark, Hadoop\,/\,Hive, ZooKeeper, Kafka, MongoDB, Grafana, Prometheus, HashiCorp Vault, React, Effector, CUDA, OpenGL, DICOM, \LaTeX, HTML, CSS
+        \cventry{\cvenglish{databases}\cvrussian{базы данных}}{
+            Amazon DocumentDB, Amazon Keyspaces, PostgreSQL, Redis, RediSearch, Clickhouse, MongoDB, YDB, Apache Cassandra, Apache HBase
+        }
+        \cventry{\cvenglish{data processing}\cvrussian{обработка данных}}{
+            Kafka, Grafana, Prometheus, Spark, Hadoop/Hive
+        }
+        \cventry{\cvenglish{libraries}\cvrussian{библиотеки}}{
+            React, Effector, NumPy, SciPy, CUDA, OpenGL
         }
         \cventry{\cvenglish{tools}\cvrussian{инструменты}}{
-            VS Code, IntelliJ IDEA, Vim, Git, Docker, GCC
+            Visual Studio Code, Git, GitHub Actions, GitHub Copilot, Vim, IntelliJ IDEA
+        }
+        \cventry{\cvenglish{operating systems}\cvrussian{операционные системы}}{
+            macOS (\cvenglish{over}\cvrussian{свыше}
+                \cvyearssince{2017} \cvenglish{years}\cvrussian{лет}),
+            Fedora (\cvenglish{over}\cvrussian{свыше} \cvyearssince{2024}
+                \cvenglish{years}\cvrussian{лет}),
+            Debian (\cvenglish{over}\cvrussian{свыше} \cvyearssince{2010}
+                \cvenglish{years}\cvrussian{лет})
         }
     \end{cvsection}
     \begin{cvsection}{\cvenglish{Spoken Languages}\cvrussian{Языки}}
         \cventry{\cvenglish{English}\cvrussian{английский}}{
-            \cvenglish{Advanced}\cvrussian{Продвинутый}~(C1.5)
+            \cvenglish{Proficient}\cvrussian{Свободно}~(C2)
         }
         \cventry{\cvenglish{Russian}\cvrussian{русский}}{
             \cvenglish{Native}\cvrussian{Родной}
@@ -159,166 +165,332 @@
     \end{cvsection}
     \begin{cvsection}{\cvenglish{Work Experience}\cvrussian{Опыт работы}}
         \cventry{\cvenglish{since}\cvrussian{с} 07/2021}{
-            \textbf{Zerion},
-            \cvenglish{remotely}\cvrussian{удаленно}
+            \textbf{Zerion}
 
             \cvenglish{
-                Developing DeFi portfolio tracking for
+                Responsible for the infrastructure of DeFi portfolio tracking platform
             }%
             \cvrussian{
-                Разрабатываю трекер DeFi-портфолио для
+                Отвечаю за инфраструктуру платформы трекинга DeFi-портфолио
             }%
-            \cvurl{Zerion}{https://zerion.io/}, \cvenglish{including}\cvrussian{включающий}:
+            \cvurl{zerion.io}{https://zerion.io/}.
 
             \begin{cvlist}
                 \cvitem{
-                    \cvenglish{L1/L2 blockchain stream processing}
-                    \cvrussian{потоковую обработку данных L1/L2 блокчейнов}
+                    \cvenglish{
+                        Designing and maintaining real-time blockchain data 
+                        processing pipelines for various ecosystems (Ethereum, Solana)
+                    }%
+                    \cvrussian{
+                        Проектирую и поддерживаю пайплайны обработки 
+                        данных блокчейнов различных экосистем (Ethereum, Solana) в реальном времени
+                    }%
                 }
                 \cvitem{
-                    \cvenglish{designing gRPC and REST APIs}
-                    \cvrussian{дизайн gRPC и REST API}
+                    \cvenglish{
+                        Developing internal (gRPC) and public (REST) high-load API services
+                    }%
+                    \cvrussian{
+                        Разрабатываю высоконагруженные внутренние (gRPC) и публичные (REST) API
+                    }%
                 }
                 \cvitem{
-                    \cvenglish{dApp integration}
-                    \cvrussian{интеграцию децентрализованных приложений}
+                    \cvenglish{
+                        Implementing integrations with major DeFi protocols
+                    }%
+                    \cvrussian{
+                        Реализую интеграции с основными DeFi-протоколами 
+                    }%
+                }
+                \cvitem{
+                    \cvenglish{
+                        Leading development of Zerion DNA and Zerion Rewards projects
+                    }%
+                    \cvrussian{
+                        Возглавляю разработку проектов Zerion DNA и Zerion Rewards
+                    }%
+                }
+                \cvitem{
+                    \cvenglish{
+                        Created a shared Golang library and established
+                        best practices and development guidelines for the team
+                    }%
+                    \cvrussian{
+                        Создал общую библиотеку на Golang и подготовил
+                        лучшие практики и рекомендации по разработке для команды
+                    }%
                 }
             \end{cvlist}
+
+            \begin{cvdescription}
+                \cvitem{\cvenglish{location}\cvrussian{расположение}}{\cvenglish{remotely}\cvrussian{удаленно}}
+                \cvitem{\cvenglish{position}\cvrussian{позиция}}{\cvenglish{tech lead}\cvrussian{технический руководитель}}
+            \end{cvdescription}
         }
         \cventry{10/2018--06/2021}{
-            \textbf{Joom},
-            \cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}
+            \textbf{Joom}
 
             \cvenglish{
-                Developing a recommendation engine for
+                Responsible for the recommendation engine for e-commerce platform
             }%
             \cvrussian{
-                Разрабатывал движок рекомендаций для
+                Отвечал за движок рекомендаций для e-commerce платформы
             }%
-            \cvurl{Joom}{https://joom.com/}
-        }
-        \cventry{05/2015--09/2018}{
-            \textbf{Yandex},
-            \cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}
+            \cvurl{joom.com}{https://joom.com/}.
 
-            \cvenglish{
-                Developing a recommendation engine for
-                \cvurl{Yandex.Market}{https://market.yandex.ru/}, including:
-            }
-            \cvrussian{
-                Разрабатывал движок рекомендаций для
-                \cvurl{Яндекс.Маркета}{https://market.yandex.ru/}, включающий:
-            }
             \begin{cvlist}
                 \cvitem{
-                    \cvenglish{comprehensive offline data processing}
-                    \cvrussian{комплексную оффлайновую обработку данных}
+                    \cvenglish{
+                        Designed and implemented data processing pipelines for 
+                        marketplace analytics and user behavior analysis
+                    }%
+                    \cvrussian{
+                        Проектировал и реализовывал пайплайны обработки данных для 
+                        аналитики маркетплейса и анализа поведения пользователей
+                    }%
                 }
                 \cvitem{
-                    \cvenglish{machine learning}
-                    \cvrussian{машинное обучение}
+                    \cvenglish{
+                        Improved recommendation feed quality through machine learning 
+                        algorithms and A/B testing frameworks
+                    }%
+                    \cvrussian{
+                        Повышал качество рекомендательной ленты через алгоритмы 
+                        машинного обучения и фреймворки A/B тестирования
+                    }%
                 }
                 \cvitem{
-                    \cvenglish{high-load web services}
-                    \cvrussian{высоконагруженные веб-сервисы}
+                    \cvenglish{
+                        Maintained high-load web services for real-time recommendations 
+                        serving millions of users
+                    }%
+                    \cvrussian{
+                        Поддерживал высоконагруженные веб-сервисы для рекомендаций 
+                        в реальном времени для миллионов пользователей
+                    }%
+                }
+                \cvitem{
+                    \cvenglish{
+                        Led infrastructure migration from AWS EC2 to Docker and Kubernetes 
+                        for improved scalability
+                    }%
+                    \cvrussian{
+                        Возглавлял миграцию инфраструктуры с AWS EC2 на Docker и Kubernetes 
+                        для улучшения масштабируемости
+                    }%
+                }
+                \cvitem{
+                    \cvenglish{
+                        Contributed to Joom Ads auction mechanics development 
+                        for the merchant advertising platform
+                    }%
+                    \cvrussian{
+                        Участвовал в разработке механики аукциона Joom Ads 
+                        для рекламной платформы мерчантов
+                    }%
                 }
             \end{cvlist}
+
+            \begin{cvdescription}
+                \cvitem{\cvenglish{location}\cvrussian{расположение}}{\cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}}
+                \cvitem{\cvenglish{position}\cvrussian{позиция}}{\cvenglish{senior machine learning engineer}\cvrussian{ведущий инженер машинного обучения}}
+            \end{cvdescription}
         }
-        \cventry{10/2014--12/2014}{
-            \textbf{Samsung},
-            \cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}
+        \cventry{05/2015--09/2018}{
+            \textbf{Yandex}
 
             \cvenglish{
-                Worked on an image super-resolution project as a software
-                engineer, implementing various motion estimation algorithms.
-            }
+                Responsible for the recommendation engine for e-commerce platform
+            }%
             \cvrussian{
-                Участвовал в проекте по супер-разрешению изображений в качестве
-                разработчика, реализовывал различные алгоритмы оценки движения
-            }
+                Отвечал за движок рекомендаций для e-commerce платформы
+            }%
+            \cvurl{market.yandex.ru}{https://market.yandex.ru/}.
+
+            \begin{cvlist}
+                \cvitem{
+                    \cvenglish{
+                        Built comprehensive offline data processing systems for 
+                        marketplace transaction and user behavior data
+                    }%
+                    \cvrussian{
+                        Построил комплексную систему оффлайновой обработки данных 
+                        транзакций и поведения пользователей маркетплейса
+                    }%
+                }
+                \cvitem{
+                    \cvenglish{
+                        Designed historical user data collection system for 
+                        personalized recommendations and analytics
+                    }%
+                    \cvrussian{
+                        Спроектировал систему сбора исторических данных пользователей 
+                        для персонализированных рекомендаций и аналитики
+                    }%
+                }
+                \cvitem{
+                    \cvenglish{
+                        Developed and maintained A/B testing framework for 
+                        recommendation algorithm evaluation
+                    }%
+                    \cvrussian{
+                        Разработал и поддерживал фреймворк A/B тестирования для 
+                        оценки алгоритмов рекомендаций
+                    }%
+                }
+                \cvitem{
+                    \cvenglish{
+                        Led migration from Hive to YDB for improved data processing 
+                        performance and reliability
+                    }%
+                    \cvrussian{
+                        Возглавлял миграцию с Hive на YDB для улучшения производительности 
+                        и надежности обработки данных
+                    }%
+                }
+            \end{cvlist}
+
+            \begin{cvdescription}
+                \cvitem{\cvenglish{location}\cvrussian{расположение}}{\cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}}
+                \cvitem{\cvenglish{position}\cvrussian{позиция}}{\cvenglish{machine learning engineer}\cvrussian{инженер машинного обучения}}
+            \end{cvdescription}
+        }
+        \cventry{10/2014--12/2014}{
+            \textbf{Samsung}
+
+            \cvenglish{
+                Responsible for image super-resolution project implementation.  
+            }%
+            \cvrussian{
+                Отвечал за реализацию проекта супер-разрешения изображений.
+            }%
+
+            \begin{cvlist}
+                \cvitem{
+                    \cvenglish{
+                        Worked on various motion estimation algorithms for video enhancement
+                    }%
+                    \cvrussian{
+                        Работал над различными алгоритмами оценки движения для улучшения видео
+                    }%
+                }
+            \end{cvlist}
+
+            \begin{cvdescription}
+                \cvitem{\cvenglish{location}\cvrussian{расположение}}{\cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}}
+                \cvitem{\cvenglish{position}\cvrussian{позиция}}{\cvenglish{software engineer}\cvrussian{разработчик}}
+            \end{cvdescription}
         }
         \cventry{07/2014--08/2014}{
             \textbf{%
-                \cvenglish{The Space Research Institute}%
+                \cvenglish{Space Research Institute}%
                 \cvrussian{Институт космических исследований РАН}%
-            },
-            \cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}
-
-            \cvenglish{Engaged in research on satellite auroral imaging:}
-            \cvrussian{
-                Занимался исследованиями в области обработки спутниковых
-                авроральных изображений:
             }
-            \begin{cvlist}
-                \cvitem{
-                    \cvenglish{
-                        developing efficient numerical methods for large-scale
-                        ground and atmospheric scattering compensation
-                    }
-                    \cvrussian{
-                        разрабатывал эффективные численные методы
-                        крупномасштабной компенсации эффектов земного и
-                        атмосферного рассеяния
-                    }
-                }
-                \cvitem{
-                    \cvenglish{
-                        prototyping them in Matlab and implementing in Python
-                    }
-                    \cvrussian{
-                        создавал прототип в Matlab и реализацию на Python
-                    }
-                }
-            \end{cvlist}
-        }
-        \cventry{07/2011--09/2011 \par 01/2012--02/2012 \par 07/2012--10/2012}{
-            \textbf{\cvenglish{The }Advanced Digital Sciences Center},
-            \cvenglish{Singapore}\cvrussian{Сингапур}
 
             \cvenglish{
-                Involved in a number of projects as a junior research assistant:
-            }
+                Responsible for satellite auroral imaging research.
+            }%
             \cvrussian{
-                Был задействован в ряде проектов в качестве младшего научного
-                сотрудника:
-            }
+                Отвечал за исследования в области обработки спутниковых авроральных изображений.
+            }%
+
             \begin{cvlist}
                 \cvitem{
-                    \cvenglish{real-time stereo matching on a GPU}
+                    \cvenglish{
+                        Developed efficient numerical methods for large-scale
+                        ground and atmospheric scattering compensation
+                    }%
                     \cvrussian{
-                        стерео-реконструкция в реальном времени на графическом
-                        процессоре
-                    }
+                        Разрабатывал эффективные численные методы
+                        крупномасштабной компенсации эффектов земного и
+                        атмосферного рассеяния
+                    }%
                 }
                 \cvitem{
-                    \cvenglish{Kinect depth map enhancement on a GPU}
+                    \cvenglish{
+                        Prototyped algorithms in Matlab and implemented 
+                        production versions in Python
+                    }%
                     \cvrussian{
-                        повышение качества карт глубины Kinect на графическом
-                        процессоре
-                    }
-                }
-                \cvitem{
-                    \cvenglish{edge-aware recursive image filtering}
-                    \cvrussian{адаптивная рекурсивная фильтрация изображений}
+                        Создавал прототипы алгоритмов в Matlab и реализовывал
+                        продакшн-версии на Python
+                    }%
                 }
             \end{cvlist}
+
             \begin{cvdescription}
-                \cvitem{\cvenglish{supervisors}\cvrussian{руководители}}{
-                    Dr.~Dongbo~Min, Dr.~Kyle~Rupnow
+                \cvitem{\cvenglish{location}\cvrussian{расположение}}{\cvenglish{Moscow, Russia}\cvrussian{Москва, Россия}}
+                \cvitem{\cvenglish{position}\cvrussian{позиция}}{\cvenglish{research intern}\cvrussian{стажер-исследователь}}
+            \end{cvdescription}
+        }
+        \cventry{07/2011--09/2011 \par 01/2012--02/2012 \par 07/2012--10/2012}{
+            \textbf{ADSC\cvfootnote{adsc}}
+
+            \cvenglish{
+                Responsible for computer vision and GPU computing research projects.
+            }%
+            \cvrussian{
+                Отвечал за исследовательские проекты по компьютерному зрению и GPU-вычислениям.
+            }%
+
+            \begin{cvlist}
+                \cvitem{
+                    \cvenglish{
+                        Implemented real-time stereo matching algorithms 
+                        optimized for GPU architecture
+                    }%
+                    \cvrussian{
+                        Реализовывал алгоритмы стерео-реконструкции в реальном времени,
+                        оптимизированные для GPU-архитектуры
+                    }%
                 }
+                \cvitem{
+                    \cvenglish{
+                        Developed Kinect depth map enhancement algorithms 
+                        using GPU parallel processing
+                    }%
+                    \cvrussian{
+                        Разрабатывал алгоритмы повышения качества карт глубины Kinect
+                        с использованием параллельных вычислений на GPU
+                    }%
+                }
+                \cvitem{
+                    \cvenglish{
+                        Researched edge-aware recursive image filtering 
+                        techniques for real-time applications
+                    }%
+                    \cvrussian{
+                        Исследовал методы адаптивной рекурсивной фильтрации изображений
+                        для приложений реального времени
+                    }%
+                }
+            \end{cvlist}
+
+            \begin{cvdescription}
+                \cvitem{\cvenglish{location}\cvrussian{расположение}}{\cvenglish{Singapore}\cvrussian{Сингапур}}
+                \cvitem{\cvenglish{position}\cvrussian{позиция}}{\cvenglish{junior research assistant}\cvrussian{младший научный сотрудник}}
+                \cvitem{\cvenglish{supervisors}\cvrussian{руководители}}{Dr.~Dongbo~Min, Dr.~Kyle~Rupnow}
             \end{cvdescription}
         }
     \end{cvsection}
-    \begin{cvsection}{\cvenglish{Publications}\cvrussian{Публикации}}
-        \cvbibliography
-    \end{cvsection}
     \begin{cvsection}{\cvenglish{References}\cvrussian{Рекомендации}}
+        \cvreference{
+            \cvenglish{Alex Bashlykov}
+            \cvrussian{Алексей Башлыков}
+        }{inbox@zerion.io}{
+            \cvenglish{
+                CTO \& Co-founder at Zerion.
+            }
+            \cvrussian{
+                Технический директор и соучредитель Zerion.
+            }
+        }
         \cvreference{%
-            \cvenglish{Prof.~Andrey~S.~Krylov}%
-            \cvrussian{проф.~А.\,С.~Крылов}%
+            \cvenglish{Prof.~Andrey~S.~Krylov}
+            \cvrussian{проф.~А.\,С.~Крылов}
         }{kryl@cs.msu.ru}{
             \cvenglish{
-                Head of the Laboratory of Mathematical Methods of Image
+                Head of Laboratory of Mathematical Methods of Image
                 Processing at CMC MSU\cvfootnote{cmcmsu} (Moscow, Russia).
             }
             \cvrussian{
@@ -329,22 +501,23 @@
         }
         \cvreference{Dr.\ Dongbo Min}{dongbo@adsc.com.sg}{
             \cvenglish{
-                A former research scientist at the Advanced Digital Sciences
-                Center (Singapore).
+                Former research scientist at ADSC\cvfootnote{adsc}.
             }
             \cvrussian{
-                Бывший научный сотрудник Advanced Digital Sciences Center
-                (Сингапур).
+                Бывший научный сотрудник ADSC\cvfootnote{adsc}.
             }
         }
         \cvreference{Dr.\ Kyle Rupnow}{k.rupnow@adsc.com.sg}{
             \cvenglish{
-                A research scientist at the Advanced Digital Sciences Center
-                (Singapore).
+                Former research scientist at ADSC\cvfootnote{adsc}.
             }
             \cvrussian{
-                Научный сотрудник Advanced Digital Sciences Center (Сингапур).
+                Бывший научный сотрудник ADSC\cvfootnote{adsc}.
             }
         }
     \end{cvsection}
+    \begin{cvsection}{\cvenglish{Publications}\cvrussian{Публикации}}
+        \cvbibliography
+    \end{cvsection}
+    \cvfootnotes
 \end{document}
