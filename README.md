@@ -6,11 +6,9 @@
 
 This CV template is released under the MIT license.
 
-## Preparation
+## Usage
 
 [Docker](https://docs.docker.com/install/) is all you need.
-
-## Usage
 
 Clone the repo, edit `cv.tex` and `publications.bib` (if any), then run
 ```bash
