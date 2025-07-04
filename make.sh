@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run --rm -v $(pwd):/cv:z thoughteer/cv "$@"
+docker run --rm -v $(pwd):/cv:z thoughteer/cv:latest "$@"

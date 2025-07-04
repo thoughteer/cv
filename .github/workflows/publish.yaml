@@ -1,0 +1,86 @@
+name: Publish
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '.gitignore'
+      - 'cv.pdf'
+      - 'cv.svg'
+      - 'LICENSE'
+      - 'README.md'
+
+env:
+  DOCKER_IMAGE: thoughteer/cv
+
+jobs:
+  dockerhub:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.DOCKER_IMAGE }}
+        tags: |
+          type=sha
+          type=raw,value=latest
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+  github:
+    runs-on: ubuntu-latest
+    needs: [dockerhub]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: true
+
+    - name: Build using make.sh
+      run: ./make.sh cv.pdf cv.svg
+
+    - name: Check if files were generated
+      run: |
+        if [ ! -f cv.pdf ]; then
+          echo "Error: cv.pdf was not generated"
+          exit 1
+        fi
+        if [ ! -f cv.svg ]; then
+          echo "Error: cv.svg was not generated"
+          exit 1
+        fi
+        echo "OK: both cv.pdf and cv.svg were generated successfully"
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Commit updated files
+      run: |
+        git add -f cv.pdf cv.svg
+        git commit -m "Update PDF and SVG"
+        git push
