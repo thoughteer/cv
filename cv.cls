@@ -121,8 +121,8 @@
     \newcommand{\cvitem}[2]{%
         \cvitembreak%
         \stepcounter{cvitemcounter}%
-        \cvcolor{low}\parbox[t]{#1}{\raggedleft##1\unskip\strut}&%
-        \pbox[t]{\@cvitemwidth}{##2\unskip\strut}\\%
+        \cvcolor{low}\parbox[t]{#1}{\raggedleft##1}&%
+        \pbox[t]{\@cvitemwidth}{##2}\\%
     }%
     \newcommand{\cvitembreak}{%
         \ifnum\thecvitemcounter>0 & \\[\@cvitembreak]\fi%
@@ -140,13 +140,13 @@
 \newcounter{cvitemcounter}
 
 % Name printing command.
-\newcommand{\cvname}{\pbox[t]{\textwidth}{\cvnamestyle\@cvname\unskip\strut}}
+\newcommand{\cvname}{\pbox[t]{\textwidth}{\cvnamestyle\@cvname}}
 \newcommand{\cvnamestyle}{\huge\bfseries}
 \newsavebox{\@cvnamebox}
 \newlength{\@cvnamewidth}
 
 % Major printing command.
-\newcommand{\cvmajor}{\pbox[t]{\textwidth}{\cvmajorstyle\@cvmajor\unskip\strut}}
+\newcommand{\cvmajor}{\pbox[t]{\textwidth}{\cvmajorstyle\@cvmajor}}
 \newcommand{\cvmajorstyle}{\cvcolor{low}}
 \newsavebox{\@cvmajorbox}
 \newlength{\@cvmajorwidth}
@@ -199,7 +199,6 @@
         \begin{minipage}[t]{\@cvsectionwidth}%
             \cvskip{paragraph}\raggedright##2%
         \end{minipage}%
-        \ignorespaces%
     }%
     \cvcolor{high}%
     \savebox{\@cvtitlebox}{#1}%
@@ -235,7 +234,7 @@
 \newenvironment{cvlist}[0]{%
     % List item.
     % #1 - value.
-    \newcommand{\cvitem}[1]{\item{##1\unskip\strut}}%
+    \newcommand{\cvitem}[1]{\item{##1}}%
     \begin{itemize}[\Pointinghand, nosep, before=\vspace{\@cvlistpadding}, after=\vspace{\@cvlistpadding}, leftmargin=*, labelindent=\@cvlistpadding, labelsep=\@cvparagraphskip]%
         \setlength{\itemsep}{\@cvparagraphskip}%
 }{\end{itemize}}
@@ -265,7 +264,7 @@
         \stepcounter{cvfootnotecounter}%
         \begingroup\edef\cvfootnotedefinition{%
             \noexpand\g@addto@macro\noexpand\@cvfootnotelist{%
-                \noexpand\cvfootnote@{\thecvfootnotecounter}{\ignorespaces#2}%
+                \noexpand\cvfootnote@{\thecvfootnotecounter}{#2}%
             }%
             \noexpand\newcommand{\csname @cvfootnote@#1\endcsname}{%
                 \thecvfootnotecounter%
@@ -291,7 +290,7 @@
 % Footnote list printing command.
 \newcommand{\cvfootnotes}{%
     \ifstrempty{\@cvfootnotelist}{}{%
-        \unskip\cvskip{section}%
+        \cvskip{section}%
         \footnotesize%
         \cvcolor{low}%
         \@cvfootnotelist%
@@ -312,7 +311,7 @@
 % #3 - position.
 \newcommand{\cvreference}[3]{%
     \cventry{\Writinghand}{%
-        \textbf{\ignorespaces#1}\hfill\cvemail{#2}%
+        \textbf{#1}\hfill\cvemail{#2}%
         \par#3%
     }%
 }
