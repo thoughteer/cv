@@ -87,7 +87,7 @@ jobs:
         persist-credentials: true
 
     - name: Build using make.sh
-      run: ./make.sh cv.pdf cv.svg
+      run: sudo ./make.sh cv.pdf cv.svg
 
     - name: Check if files were generated
       run: |
