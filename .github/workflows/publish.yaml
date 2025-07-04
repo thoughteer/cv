@@ -86,20 +86,6 @@ jobs:
       with:
         persist-credentials: true
 
-    - name: Debug
-      run: |
-        whoami
-        groups
-        ls -la
-        pwd
-        sudo whoami
-        sudo groups
-
-    - name: Fix permissions
-      run: |
-        sudo chown -R $USER:$USER ${{ github.workspace }}
-        chmod -R 755 ${{ github.workspace }}
-
     - name: Build using make.sh
       run: ./make.sh cv.pdf cv.svg
 
