@@ -110,6 +110,6 @@ jobs:
 
     - name: Commit updated files
       run: |
-        git add -f cv.pdf cv.svg
+        git add cv.pdf cv.svg
         git commit -m "Update PDF and SVG"
         git push
