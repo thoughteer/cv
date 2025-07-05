@@ -8,23 +8,29 @@ This CV template is released under the MIT license.
 
 ## Usage
 
-[Docker](https://docs.docker.com/install/) is all you need.
+Install [Docker](https://docs.docker.com/install/).
 
-Clone the repo, edit `cv.tex` and `publications.bib` (if any), then run
+On a non-Linux or non-AMD64 machine (e.g. macOS), run
 ```bash
-$ ./make.sh
+docker build -t thoughteer/cv .
 ```
-This will produce `cv.pdf`.
+once.
+
+Edit `cv.tex` and `publications.bib` (if any), then run
+```bash
+./make.sh
+```
+to produce `cv.pdf`.
 
 You can change the target language by passing an additional argument as in
 ```bash
-$ ./make.sh language=russian
+./make.sh language=russian
 ```
 The default language is `english`.
 
 To clean up after compilation, run
 ```bash
-$ ./make.sh clean
+./make.sh clean
 ```
 Note that this will also remove the PDF.
 
@@ -36,7 +42,7 @@ Just redefine colors in the *Colors* section of `cv.cls`.
 
 #### Additional LaTeX packages
 
-Add missing Debian packages to the `Dockerfile` file, then run
+Add missing packages to the `Dockerfile` file, then run
 ```bash
 docker build -t thoughteer/cv .
 ```
