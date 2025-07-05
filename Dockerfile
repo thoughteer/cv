@@ -1,4 +1,4 @@
-FROM ubuntu:25.10@sha256:dd397d3b5e4896054db111cb5145c0c08a6e7a669537e750e79e0385f2d69207
+FROM ubuntu:25.10@sha256:10b61aabaaf0123f3670112057c3b3ccf27c808ddb892ba5a4e32366bff7f3fe
 
 WORKDIR /cv
 
@@ -21,5 +21,4 @@ RUN apt-get install -y --no-install-recommends \
 
 ADD Makefile /cv
 
-USER ubuntu
 ENTRYPOINT ["make"]
