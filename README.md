@@ -1,6 +1,6 @@
 # CV
 
-[An unsophisticated yet neatly crafted LaTeX template for your CV.](#example)
+[An unsophisticated yet neatly crafted LaTeX template for a CV.](#example)
 
 ## License
 
